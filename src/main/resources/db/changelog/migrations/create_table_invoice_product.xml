@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="beforeCreatingTable" author="prasanna">
+        <tagDatabase tag="before_create_table_invoice_product"/>
+    </changeSet>
+
+    <changeSet id="createTableInvoiceProduct" author="prasanna">
+        <createTable tableName="invoice_product">
+            <column name="invoice_id" type="int">
+                <constraints nullable="false" foreignKeyName="FK_INVOICE_PRODUCT_INVOICE_ID"
+                             references="invoice(invoice_id)"/>
+            </column>
+            <column name="product_id" type="int">
+                <constraints nullable="false" foreignKeyName="FK_INVOICE_PRODUCT_PRODUCT_ID"
+                             references="product(product_id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
